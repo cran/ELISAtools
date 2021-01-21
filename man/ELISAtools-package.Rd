@@ -21,7 +21,7 @@ This package is developed to run analysis of ELISA data.
 		Please refer to the vignettes to see details.
 }
 \references{
-Feng, et al 2018 \url{https://doi.org/10.1101/483800}
+Feng, et al 2018 \doi{10.1101/483800}
 }
 \author{
 \strong{Maintainer}: Feng Feng \email{ffeng@BU.edu}

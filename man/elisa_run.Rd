@@ -4,9 +4,14 @@
 \alias{elisa_run}
 \title{Constructor function to build an elisa_run object}
 \usage{
-elisa_run(batchID = NA_character_, desc = NA_character_,
-  plates = list(), num.plates = 1, date = NA_character_,
-  range.ODs = c(-1, -1))
+elisa_run(
+  batchID = NA_character_,
+  desc = NA_character_,
+  plates = list(),
+  num.plates = 1,
+  date = NA_character_,
+  range.ODs = c(-1, -1)
+)
 }
 \arguments{
 \item{batchID}{characters to specify the batch}

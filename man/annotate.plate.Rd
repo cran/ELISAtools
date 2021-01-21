@@ -4,10 +4,20 @@
 \alias{annotate.plate}
 \title{S3 method to annotate ELISA plate}
 \usage{
-annotate.plate(sample.id, sample.prefix, sample.suffix, num.sample,
-  num.std = 8, byRow.sample = TRUE, byRow.replicates = TRUE,
-  replicates.sample = 3, replicates.std = 3, rows, columns,
-  std.first = TRUE)
+annotate.plate(
+  sample.id,
+  sample.prefix,
+  sample.suffix,
+  num.sample,
+  num.std = 8,
+  byRow.sample = TRUE,
+  byRow.replicates = TRUE,
+  replicates.sample = 3,
+  replicates.std = 3,
+  rows,
+  columns,
+  std.first = TRUE
+)
 }
 \arguments{
 \item{sample.id}{character vector to specify the names/ids of

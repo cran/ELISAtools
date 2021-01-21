@@ -29,7 +29,7 @@ The input data structure contains both the data (ODs) and
 	structure, if there are more than one batches in the data.
 }
 \references{
-Feng 2018 \url{https://doi.org/10.1101/483800}
+Feng 2018 \doi{10.1101/483800}
 }
 \seealso{
 \code{\link{elisa_batch}} \code{\link{elisa_run}}

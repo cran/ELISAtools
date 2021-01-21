@@ -4,11 +4,17 @@
 \alias{elisa_plate}
 \title{Constructor function to build an elisa_plate object}
 \usage{
-elisa_plate(batchID = NA_character_, expID = NA_character_,
-  desc = NA_character_, data.std = data.frame(),
-  mdata.std = data.frame(), data.unknown = data.frame(),
-  mdata.unknown = data.frame(), normFactor = NaN, range.ODs = c(-1,
-  -1))
+elisa_plate(
+  batchID = NA_character_,
+  expID = NA_character_,
+  desc = NA_character_,
+  data.std = data.frame(),
+  mdata.std = data.frame(),
+  data.unknown = data.frame(),
+  mdata.unknown = data.frame(),
+  normFactor = NaN,
+  range.ODs = c(-1, -1)
+)
 }
 \arguments{
 \item{batchID}{characters to specify the batch}

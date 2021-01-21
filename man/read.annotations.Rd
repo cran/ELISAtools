@@ -4,8 +4,13 @@
 \alias{read.annotations}
 \title{Read the annotations of plates}
 \usage{
-read.annotations(annotation, std.conc, dir.annotation, dir.stdConc,
-  num.plate = 1)
+read.annotations(
+  annotation,
+  std.conc,
+  dir.annotation,
+  dir.stdConc,
+  num.plate = 1
+)
 }
 \arguments{
 \item{annotation}{characters to specify the path and name of the annotation file}

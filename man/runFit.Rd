@@ -68,5 +68,5 @@ batches<-runFit(pars=pars,  batches=batches, refBatch.ID=1, model=model  )
 
 }
 \references{
-Feng, et al 2018 \url{https://doi.org/10.1101/483800}
+Feng, et al 2018 \doi{10.1101/483800}
 }

@@ -1,4 +1,4 @@
-## ----setup, include = FALSE----------------------------------------------
+## ----setup, include = FALSE---------------------------------------------------
 knitr::opts_chunk$set(
   collapse = FALSE,
   comment = "#>",
@@ -6,21 +6,21 @@ knitr::opts_chunk$set(
   engine='R'
 )
 
-## ---- eval=FALSE---------------------------------------------------------
+## ---- eval=FALSE--------------------------------------------------------------
 #  install.packages("ELISAtools")
 
-## ---- eval=T-------------------------------------------------------------
+## ---- eval=T------------------------------------------------------------------
     library(ELISAtools)
 
-## ------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 dir_file<-system.file("extdata", package="ELISAtools")
 tbl.design<-read.table(file.path(dir_file,"design.txt"), header=T,sep="\t")
 print(tbl.design)	   
 
-## ------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 system.file("extdata", package="ELISAtools");
 
-## ----chunk1, fig.show='asis', fig.cap="\\label{fig:chunk1}Raw batch data"----
+## ----chunk1, fig.show='asis', fig.cap="\\label{fig:chunk1}Raw batch data"-----
 dir_file<-system.file("extdata", package="ELISAtools")
   
 batches<-loadData(file.path(dir_file,"design.txt"))
@@ -32,7 +32,7 @@ length(batches)
 #visualize the raw day without analyses
 plotAlignData(batches);
 
-## ----chunk2--------------------------------------------------------------
+## ----chunk2-------------------------------------------------------------------
 #make a guess for the initial value of the parameters, 
 #the other two parameters a and d will be estimated based on data. 
 #Sometimes it is important to make the initial values 
@@ -54,25 +54,25 @@ plotBatchData(batches[[1]])
 #plotting batch data with adjustment for visualizing
 plotAlignData(batches)
 
-## ---- eval=F-------------------------------------------------------------
+## ---- eval=F------------------------------------------------------------------
 #  #save the batch data with fitting results and S factors
 #  fn<-file.path(tempdir(),"batchAnalysis.txt");
 #  saveDataText(batches, fn);
 
-## ----eval=F--------------------------------------------------------------
+## ----eval=F-------------------------------------------------------------------
 #  #reporting. need to specify a directory that is writable!!!
 #  reportHtml(batches, file.dir=tempdir())
 
-## ----eval=F--------------------------------------------------------------
+## ----eval=F-------------------------------------------------------------------
 #    #now saving the combine data.
 #    saveDB(batches, file.path(tempdir(),"elisa_tool1.rds"));
 #    batches.old<-loadDB(file.path(tempdir(), "elisa_tool1.rds"));
 
-## ---- eval=F-------------------------------------------------------------
+## ---- eval=F------------------------------------------------------------------
 #    #now suppose want to join/combine the two batches, old and new
 #    batches.com<-combineData(batches.old, batches);
 #    reportHtml(batches.com,file.dir=tempdir())
 
-## ------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
   sessionInfo()
 

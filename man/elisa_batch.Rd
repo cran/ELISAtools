@@ -4,10 +4,17 @@
 \alias{elisa_batch}
 \title{Constructor function to build an elisa_batch object}
 \usage{
-elisa_batch(batchID = NA_character_, desc = NA_character_,
-  runs = list(), model.fit = list(), model.name = NA_character_,
-  pars = c(-1), num.runs = 1, range.ODs = c(-1, -1),
-  normFactor = NaN)
+elisa_batch(
+  batchID = NA_character_,
+  desc = NA_character_,
+  runs = list(),
+  model.fit = list(),
+  model.name = NA_character_,
+  pars = c(-1),
+  num.runs = 1,
+  range.ODs = c(-1, -1),
+  normFactor = NaN
+)
 }
 \arguments{
 \item{batchID}{character string to specify a batches}

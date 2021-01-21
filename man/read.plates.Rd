@@ -4,8 +4,14 @@
 \alias{read.plates}
 \title{Read the ELISA OD files}
 \usage{
-read.plates(fileName, annotations, num.plate = 1, batchID, expID,
-  date = NA_character_)
+read.plates(
+  fileName,
+  annotations,
+  num.plate = 1,
+  batchID,
+  expID,
+  date = NA_character_
+)
 }
 \arguments{
 \item{fileName}{characters containing file name of OD data}
