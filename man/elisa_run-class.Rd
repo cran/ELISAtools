@@ -43,6 +43,6 @@ This is list to hold the data for each elisa run.
 elisa_run();
 }
 \seealso{
-\code{\link{nls.lm}}
+\code{\link[minpack.lm]{nls.lm}}
 }
 \concept{ELISA}

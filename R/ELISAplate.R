@@ -4,6 +4,8 @@
 #'@import stats
 #'@importFrom methods new
 
+
+
 #defining elisa plate object, S4 class
 #'@title S4 class definition of an elisa_plate object
 #'
@@ -26,7 +28,7 @@
 #' @param data.std data.frame for standard curve data 
 #'          
 #' @param data.unknown data.frame containing data for samples with unknown concentration
-# #' @param model.regression nls.lm \code{link{nls.lm}} the regression model
+# #' @param model.regression nls.lm \code{link[minpack.lm]{nls.lm}} the regression model
 # #'		fitted with either the four- or five-parameter logistic function.  
 #' @param normFactor numeric the correction factor for batch effects ("S").
 #' @param mdata.unknown data.frame containing the mean ODs and concentration by sample IDs.
@@ -43,7 +45,7 @@
 #' @slot mdata.unknown data.frame 
 #' @slot mdata.std data.frame
 # #' @slot offset numeric
-#' @seealso \code{\link{nls.lm}} 
+#' @seealso \code{\link[minpack.lm]{nls.lm}} 
 #' @examples
 #' elisa_plate();
 #' @export
@@ -80,14 +82,14 @@ setClass("elisa_plate",
 #' @param data.std data.frame for standard curve data 
 #'          
 #' @param data.unknown data.frame for data of samples with unknown concentration
-# #' @param model.regression nls.lm \code{\link{nls.lm}} the regression model
+# #' @param model.regression nls.lm \code{\link[minpack.lm]{nls.lm}} the regression model
 #'		fitted with either four- or five-parameter logistic function.  
 #' @param normFactor numeric the correction factor for batch effects.
 #' @param mdata.unknown data.frame containing the mean ODs and concentration by sample IDs.
 #' @param mdata.std data.frame containing the mean ODs and concentration of the calibration data
 #' @param range.ODs numeric the min and max ODs in the plate.
 #'	@return an elisa_plate object 
-#' @seealso \code{\link{nls.lm}} \code{\link{loadData}} \code{\link{elisa_plate}} 
+#' @seealso \code{\link[minpack.lm]{nls.lm}} \code{\link{loadData}} \code{\link{elisa_plate}} 
 #'	\code{\link{load.ODs}}
 #' @examples
 #'	elisa_plate();
@@ -133,19 +135,19 @@ setMethod("load.ODs", c("x"="elisa_plate"),
 			{
 				x<-elisa_plate();
 			}
-			if(missing(plate.header)||class(plate.header)!="character")
+			if(missing(plate.header)||!is.character(plate.header))
 			{
 				stop("please the input plate header in correct format");
 			}
-			if(missing(plate.data)||class(plate.data)!="numeric")
+			if(missing(plate.data)||!is.numeric(plate.data))
 			{
 				stop("please the input plate data in correct format");
 			}
-			if(missing(annotation)||class(annotation)!="list")
+			if(missing(annotation)||!is.list(annotation))
 			{
 				stop("please the input plate annotation in correct format");
 			}
-			if(missing(plate.blank)||class(plate.blank)!="numeric")
+			if(missing(plate.blank)||!is.numeric(plate.blank))
 			{
 				stop("please the input plate blank in correct format");
 			}
@@ -209,7 +211,7 @@ setMethod("load.ODs", c("x"="elisa_plate"),
 #' @slot num.plates numeric
 #' @slot date character
 #' @slot range.ODs numeric 
-#' @seealso \code{\link{nls.lm}} 
+#' @seealso \code{\link[minpack.lm]{nls.lm}} 
 #' @examples
 #' elisa_run();
 #' @export
@@ -244,7 +246,7 @@ setClass("elisa_run",
 #' @param date charaters the date to run ELISA measurements
 #' @param range.ODs numeric the range of ODs for the measurements
 #'	@return an elisa_run object 
-#' @seealso \code{\link{nls.lm}} \code{\link{elisa_run-class}} \code{\link{elisa_plate-class}} 
+#' @seealso \code{\link[minpack.lm]{nls.lm}} \code{\link{elisa_run-class}} \code{\link{elisa_plate-class}} 
 #'	
 #' @examples
 #'	elisa_run();
@@ -298,7 +300,7 @@ elisa_run<-function(batchID=NA_character_,#expID=NA_character_,
 #' @slot model.name character
 #' @slot range.ODs numeic
 #' @slot normFactor numeric 
-#' @seealso \code{\link{nls.lm}} \code{\link{elisa_plate-class}} \code{\link{elisa_run-class}} 
+#' @seealso \code{\link[minpack.lm]{nls.lm}} \code{\link{elisa_plate-class}} \code{\link{elisa_run-class}} 
 #'	\code{\link{elisa_batch-class}} 
 #' @examples
 #' elisa_batch();
@@ -343,7 +345,7 @@ setClass("elisa_batch",
 #'
 #' @param normFactor numeric the batch effect normalization factor ("S").
 #'	@return an elisa_batch object 
-#' @seealso \code{\link{nls.lm}} \code{\link{elisa_run-class}} \code{\link{elisa_plate-class}} 
+#' @seealso \code{\link[minpack.lm]{nls.lm}} \code{\link{elisa_run-class}} \code{\link{elisa_plate-class}} 
 #'	\code{\link{elisa_batch-class}} 
 #' @examples
 #'	elisa_batch();
@@ -357,6 +359,7 @@ elisa_batch<-function(batchID=NA_character_,#expID=NA_character_,
 	num.runs=num.runs, range.ODs=range.ODs, normFactor=normFactor))	
 }
 
+#'@importFrom methods is
 #setClassUnion("nls.lmOrNULL",c("nls.lm","NULL")) 
 #setGeneric
 #setGeneric("predict", signature="x",
@@ -379,7 +382,7 @@ predictBatchData<-function(batch)
 	{
 		stop("ERROR:please specify the input batch data");
 	}
-	if(class(batch)!="elisa_batch")
+	if(!is(batch,"elisa_batch"))
 	{
 		stop("ERROR:please specify the data as elisa_batch");
 	}
@@ -464,7 +467,7 @@ predictAll<-function(batches)
 	{
 		stop("ERROR:please specify the input batch data");
 	}
-	if(class(batches)!="list")
+	if(!is.list(batches))
 	{
 		stop("ERROR:please specify the data as a list of elisa_batch object");
 	}

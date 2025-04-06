@@ -55,6 +55,6 @@ with default values and then load the elisa_run data into it
 elisa_batch();
 }
 \seealso{
-\code{\link{nls.lm}} \code{\link{elisa_run-class}} \code{\link{elisa_plate-class}} 
+\code{\link[minpack.lm]{nls.lm}} \code{\link{elisa_run-class}} \code{\link{elisa_plate-class}} 
 \code{\link{elisa_batch-class}}
 }

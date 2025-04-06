@@ -1,0 +1,2 @@
+ExpID	FileName	Batch	Num_Plate	Date	AnnotationFile	Std_Conc	Dir_Annotation	Dir_StdConc
+Exp1	plate2_27_dataSdf.txt	Batch1	1	9/18/2009	AnExp_2plate.txt	stdConc.txt		

@@ -59,6 +59,6 @@ Note: we assume each plate has its own standard curve.
 elisa_plate();
 }
 \seealso{
-\code{\link{nls.lm}}
+\code{\link[minpack.lm]{nls.lm}}
 }
 \concept{ELISA}

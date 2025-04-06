@@ -14,18 +14,18 @@ by default.}
 }
 \value{
 a data list contain the following elements,
+
 \itemize{
-\item {inits, the initial values for the standard curves of all the plates\cr}
+\item inits, the initial values for the standard curves of all the plates\cr
 	
-\item {ref.ibatch, the index of the reference batch\cr}
-	{
+\item ref.ibatch, the index of the reference batch\cr
+	
 		This one is specified by the input ref.batch.
-	}
-\item {ref.irun,the index of the reference run\cr}
+	
+\item ref.irun,the index of the reference run\cr
 
-\item {ref.index,the index of the reference line in the order
-		of the inits vector\cr}
-
+\item ref.index,the index of the reference line in the order
+		of the inits vector\cr
 }
 }
 \description{

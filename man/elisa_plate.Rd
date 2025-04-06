@@ -55,6 +55,6 @@ by calling loadData \code{\link{loadData}} or load.ODs
 elisa_plate();
 }
 \seealso{
-\code{\link{nls.lm}} \code{\link{loadData}} \code{\link{elisa_plate}} 
+\code{\link[minpack.lm]{nls.lm}} \code{\link{loadData}} \code{\link{elisa_plate}} 
 \code{\link{load.ODs}}
 }

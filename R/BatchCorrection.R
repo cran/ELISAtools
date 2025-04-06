@@ -2,6 +2,7 @@
 #'@import R2HTML
 #'@import grDevices
 #'@import graphics
+NULL
 
 
 #BatchCorretion module for ELISA analysis
@@ -147,19 +148,20 @@ prepareRegInput<-function(batches
 	#'		by default.
 	#'
 	#'@return a data list contain the following elements,
+	#'
 	#' \itemize{
-	#'	\item {inits, the initial values for the standard curves of all the plates\cr}
+	#'	\item inits, the initial values for the standard curves of all the plates\cr
 	#'		
-	#'	\item {ref.ibatch, the index of the reference batch\cr}
-	#'		{
+	#'	\item ref.ibatch, the index of the reference batch\cr
+	#'		
 	#'			This one is specified by the input ref.batch.
-	#'		}
-	#'	\item {ref.irun,the index of the reference run\cr}
+	#'		
+	#'	\item ref.irun,the index of the reference run\cr
 	#'
-	#'	\item {ref.index,the index of the reference line in the order
-	#'			of the inits vector\cr}
-	#'
+	#'	\item ref.index,the index of the reference line in the order
+	#'			of the inits vector\cr
 	#'}
+	#'
 	# #'@export
 	prepareInitsLM<-function(batches, ref.batch=1)
 	{
@@ -225,7 +227,7 @@ rangeOD<-function(batches)
 	{
 		stop("please specify the input ")
 	}
-	if(class(batches)!="list")
+	if(!is.list(batches))
 	{
 		stop("please specify the correct input")
 	}
@@ -353,6 +355,7 @@ findUpLow.middle<-function(y, x, OD.middle)
 	return(list(low=low, high=high))
 }
 
+#'@importFrom methods is
 # #'save the fitted regression model into the data
 # #'	here we save the model into batch data
 # #'	we save the regression model into batch level
@@ -373,11 +376,11 @@ saveRegressionModel<-function(batches, regModel, mode=c("fix.both","fix.low", "f
 	{
 		stop("ERROR:please specify the input batches")
 	}
-	if(class(batches)!="list")
+	if(!is.list(batches))
 	{
 		stop("ERROR:please specify the input as list")
 	}
-	if(class(regModel)!="nls.lm")
+	if(!is(regModel,"nls.lm"))
 	{
 		stop("ERROR:please specify the input of the regression model")
 	}
@@ -481,7 +484,7 @@ plotAlignData<-function(batches, graph.file=NULL)
 	{
 		stop("please specify the input")
 	}
-	if(class(batches)!="list")
+	if(!is.list(batches))
 	{
 		stop("the input should be a list")
 	}
@@ -562,6 +565,7 @@ plotAlignData<-function(batches, graph.file=NULL)
 	return(graph.file);
 }
 
+#'@importFrom methods is
 #do not align the standards. simply plot the data by batch. 
 #no shifting
 #graph.file is the file name for the graph to be plotted.
@@ -599,7 +603,7 @@ plotBatchData<-function(batch, graph.file=NULL)
 		stop("ERROR: please specify the batch input")
 	}
 	
-	if(class(batch)!="elisa_batch")
+	if(!is(batch,"elisa_batch"))
 	{
 		stop("ERROR: please specify the input as elisa_batch data")
 	}
@@ -703,7 +707,7 @@ reportHtml<-function(batches, file.name="report", file.dir=".", desc="")
 		stop("ERROR:please specify the input data")
 	}
 	
-	if(class(batches)!="list")
+	if(!is.list(batches))
 	{
 		stop("ERROR:please specify the input data as a list of elisa_batch objects")
 	}
@@ -740,7 +744,7 @@ reportHtml<-function(batches, file.name="report", file.dir=".", desc="")
 		}
 	};
 	x<-HTML(data.frame(desc="Regression Model:", content=batches[[1]]@model.name));
-	if(!is.null(batches[[1]]@model.name)&&batches[[1]]@pars!=-1){
+	if(!is.null(batches[[1]]@model.name)&&batches[[1]]@pars[1]!=-1){
 		x<-HTML("Model Parameters:");
 		y<-{
 			if(batches[[1]]@model.name=="5pl"){

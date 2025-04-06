@@ -33,6 +33,6 @@ standard concentration data.
 }
 \section{Methods (by class)}{
 \itemize{
-\item \code{elisa_plate}: to load ODs to an elisa_plate object
-}}
+\item \code{load.ODs(elisa_plate)}: to load ODs to an elisa_plate object
 
+}}

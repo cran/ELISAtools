@@ -58,7 +58,7 @@ This holds the data for elisa batch.
 elisa_batch();
 }
 \seealso{
-\code{\link{nls.lm}} \code{\link{elisa_plate-class}} \code{\link{elisa_run-class}} 
+\code{\link[minpack.lm]{nls.lm}} \code{\link{elisa_plate-class}} \code{\link{elisa_run-class}} 
 \code{\link{elisa_batch-class}}
 }
 \concept{ELISA}

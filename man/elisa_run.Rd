@@ -44,5 +44,5 @@ with default values and then load the elisa_run data into.
 elisa_run();
 }
 \seealso{
-\code{\link{nls.lm}} \code{\link{elisa_run-class}} \code{\link{elisa_plate-class}}
+\code{\link[minpack.lm]{nls.lm}} \code{\link{elisa_run-class}} \code{\link{elisa_plate-class}}
 }
